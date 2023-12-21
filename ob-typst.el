@@ -44,7 +44,7 @@ Initial value produces minimum"
 (defun org-babel-execute:typst (body params)
   "Execute a block of typst code with org-babel.
 This function is called by `org-babel-execute-src-block'."
-  (let* ((out-file (or (alist-get :file params)
+  (let* ((out-file (or (alist-get :outfile params)
 		       (org-babel-temp-file "org-babel-typst" ".png"))))
     (ob-typst/create-formula-image body out-file)
     out-file))
