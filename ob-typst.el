@@ -35,6 +35,11 @@
   > {{{results([[file:/tmp/babel-R4uOI0/org-babel-typsttIVzgp.png]])}}}
 ")
 
+(defvar ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
+  "if target typst snippet doesn't have rule for page, this will be used.
+Initial value produces minimum"
+  )
+
 
 (defun org-babel-execute:typst (body params)
   "Execute a block of typst code with org-babel.
@@ -62,7 +67,7 @@ extension. Supported file formats are: .png, .pdf, .svg
       (insert string)
       (unless (search-backward "#set page(" nil t)
 	(goto-char (point-min))
-	(insert "#set page(width: auto, height: auto, margin: 5pt)\n"))
+	(insert ob-typst/default-page-rule "\n"))
       )
     (copy-file (org-compile-file tmpfile
 				 (list (format "typst compile --format %s --root %%o %%f" ext))
