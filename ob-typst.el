@@ -20,7 +20,7 @@
 
 ;;; Commentary:
 
-;; 
+;;; Code:
 
 (defvar org-babel-default-header-args:typst
   '((:results . "file graphics raw"))
@@ -73,8 +73,6 @@ extension. Supported file formats are: .png, .pdf, .svg
 				 (list (format "typst compile --format %s --root %%o %%f" ext))
 				 ext "" log-buf)
 	       tofile 'replace)))
-;;; Code:
-
 
 
 (provide 'ob-typst)
