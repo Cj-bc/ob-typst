@@ -1,0 +1,28 @@
+* ob-typst -- Org babel file for typst
+Org babel for typst. It can generate image or pdf, and inserts link to them.
+
+** Installation
+
+#+begin_src elisp
+  (leaf ob-typst
+    :el-get Cj-bc/ob-typst)
+#+end_src
+
+** Usage
+Use it normally.
+
+#+begin_src typst
+#+end_src
+
+*** With explict file name
+You can specify file name for the generated image/pdf by ~:outfile~ argument:
+
+#+begin_src typst :outfile sample.png
+  = Hello Sample file!
+
+  This file should be at _sample.png_
+#+end_src
+
+#+RESULTS:
+[[file:sample.png]]
+
