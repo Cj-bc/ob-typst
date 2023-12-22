@@ -16,8 +16,8 @@ Write typst in code block
  This is sample typst snippet.
 #+end_src
 
-Calling src_elisp[:results code value :exports results]{(key-description (car (where-is-internal 'org-ctrl-c-ctrl-c)))} {{{results(src_elisp[]{"C-c C-c"})}}}
-on it converts it into image, saves to temporary file, and inserts link to it.
+Calling ~C-c C-c~ (~org-ctrl-c-ctrl-c~) on it converts it into image,
+saves to temporary file, and inserts link to it.
 
 
 *** With explict file name
