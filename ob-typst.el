@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2023 Cj-bc/陽鞠莉桜
 
-;; Author: Cj-bc/陽鞠莉桜
+;; Author: Cj-bc/陽鞠莉桜 <cj.bc-sd@outlook.jp>
 ;; Keywords: 
 
 ;; This program is free software; you can redistribute it and/or modify
