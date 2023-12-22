@@ -70,19 +70,21 @@ The generated image file is eventually moved to TOFILE.
 Generated file format is determined by TOFILE file
 extension. Supported file formats are: .png, .pdf, .svg
 "
-  (let ((tmpfile (make-temp-file "ob-typst"))
-	(ext (file-name-extension tofile))
-	(log-buf (get-buffer-create "*Org Preview typst Output*")))
-    (with-temp-file tmpfile
-      (insert string)
-      (unless (search-backward "#set page(" nil t)
-	(goto-char (point-min))
-	(insert ob-typst/default-page-rule "\n"))
+  (if (ob-typst/cli-available-p)
+      (let ((tmpfile (make-temp-file "ob-typst"))
+	    (ext (file-name-extension tofile))
+	    (log-buf (get-buffer-create "*Org Preview typst Output*")))
+	(with-temp-file tmpfile
+	  (insert string)
+	  (unless (search-backward "#set page(" nil t)
+	    (goto-char (point-min))
+	    (insert ob-typst/default-page-rule "\n"))
       )
-    (copy-file (org-compile-file tmpfile
-				 (list (format "typst compile --format %s --root %%o %%f" ext))
-				 ext "" log-buf)
-	       tofile 'replace)))
+	(copy-file (org-compile-file tmpfile
+				     (list (format "typst compile --format %s --root %%o %%f" ext))
+				     ext "" log-buf)
+		   tofile 'replace))
+    (display-warning 'ob-typst "typst command not found")))
 
 
 (provide 'ob-typst)
