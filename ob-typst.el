@@ -22,6 +22,10 @@
 
 ;;; Code:
 
+(require 'files)
+(require 'org-macs)
+(require 'ob-core)
+
 (defvar org-babel-default-header-args:typst
   '((:results . "file graphics raw"))
   "Default arguments to use when evaluating a typst source block.
