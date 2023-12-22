@@ -8,7 +8,7 @@ Org babel for typst. It can generate image or pdf, and inserts link to them.
     :el-get Cj-bc/ob-typst)
 #+end_src
 
-** Usage
+** Basic usage
 Write typst in code block
 
 #+begin_src typst
@@ -19,8 +19,8 @@ Write typst in code block
 Calling ~C-c C-c~ (~org-ctrl-c-ctrl-c~) on it converts it into image,
 saves to temporary file, and inserts link to it.
 
-
-*** With explict file name
+** Features
+*** Output to specified file
 You can specify file name for the generated image/pdf by ~:outfile~ argument:
 
 #+begin_src typst :outfile sample.png :exports both
@@ -31,4 +31,10 @@ You can specify file name for the generated image/pdf by ~:outfile~ argument:
 
 #+RESULTS:
 [[file:sample.png]]
+*** Default page rule when nothing is specified
+You can define default [[https://typst.app/docs/reference/layout/page/][page rule]] (defines page size, etc)
+~ob-typst/default-page-rule~ that will be automatically inserted when
+none page rule is written in the snippet.
+
+By default, ~width~ and ~height~ are auto so that it won't be too big.
 
