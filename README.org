@@ -9,10 +9,16 @@ Org babel for typst. It can generate image or pdf, and inserts link to them.
 #+end_src
 
 ** Usage
-Use it normally.
+Write typst in code block
 
 #+begin_src typst
+ = Hello!
+ This is sample typst snippet.
 #+end_src
+
+Calling src_elisp[:results code value :exports results]{(key-description (car (where-is-internal 'org-ctrl-c-ctrl-c)))} {{{results(src_elisp[]{"C-c C-c"})}}}
+on it converts it into image, saves to temporary file, and inserts link to it.
+
 
 *** With explict file name
 You can specify file name for the generated image/pdf by ~:outfile~ argument:
