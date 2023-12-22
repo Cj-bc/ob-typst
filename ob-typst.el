@@ -45,6 +45,12 @@ Initial value produces minimum"
   )
 
 
+(defun ob-typst/cli-available-p ()
+  "Returns t if typst cli command is available"
+  (condition-case nil
+    (progn (call-process "typst" nil nil nil "--help") t)
+    (file-missing nil)))
+
 (defun org-babel-execute:typst (body params)
   "Execute a block of typst code with org-babel.
 This function is called by `org-babel-execute-src-block'."
