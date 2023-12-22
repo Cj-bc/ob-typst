@@ -20,6 +20,9 @@
 
 ;;; Commentary:
 
+;; Org babel for https://typst.app/
+;; Requires typst cli tool: https://github.com/typst/typst
+
 ;;; Code:
 
 (require 'files)
@@ -40,8 +43,8 @@
 ")
 
 (defvar ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
-  "if target typst snippet doesn't have rule for page, this will be used.
-Initial value produces minimum"
+  "rule for page element when target typst snippet doesn't have one.
+Initial value sets page to fit page content."
   )
 
 
