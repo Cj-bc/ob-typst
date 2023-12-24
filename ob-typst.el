@@ -20,8 +20,10 @@
 
 ;;; Commentary:
 
-;; Org babel for https://typst.app/
+;; Org babel for https://typst.app.
 ;; Requires typst cli tool: https://github.com/typst/typst
+;;
+;; This only provides babel execution function, not "typst-mode" or "typst-ts-mode"
 
 ;;; Code:
 
@@ -40,6 +42,7 @@
   > src_typst{a/b = abc_d}
   expands to:
   > {{{results([[file:/tmp/babel-R4uOI0/org-babel-typsttIVzgp.png]])}}}
+which can't be previewed by `org-toggle-inline-images'.
 ")
 
 (defvar ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
@@ -62,6 +65,8 @@ This function is called by `org-babel-execute-src-block'."
     (ob-typst/create-image body out-file)
     out-file))
 
+;; I've got idea and name for this function from
+;; `org-create-formula-image'.
 (defun ob-typst/create-image (string tofile)
   "Create an image from typst source using external process.
 
