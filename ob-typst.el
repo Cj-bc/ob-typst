@@ -35,20 +35,19 @@
   '((:results . "file graphics raw"))
   "Default arguments to use when evaluating a typst source block.
 
-  Having \"raw\" in it enables inline src block outputs only file
-  path, which works nicely with `org-toggle-inline-images'
-  
-  Without it,
+Having \"raw\" in it enables inline src block outputs only file
+path, which works nicely with `org-toggle-inline-images'
+
+Without it,
   > src_typst{a/b = abc_d}
-  expands to:
+expands to:
   > {{{results([[file:/tmp/babel-R4uOI0/org-babel-typsttIVzgp.png]])}}}
 which can't be previewed by `org-toggle-inline-images'.
 ")
 
 (defvar ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
   "rule for page element when target typst snippet doesn't have one.
-Initial value sets page to fit page content."
-  )
+Initial value sets page to fit page content.")
 
 
 (defun ob-typst/cli-available-p ()
@@ -86,8 +85,7 @@ extension. Supported file formats are: .png, .pdf, .svg
 	  (insert string)
 	  (unless (search-backward "#set page(" nil t)
 	    (goto-char (point-min))
-	    (insert ob-typst/default-page-rule "\n"))
-      )
+	    (insert ob-typst/default-page-rule "\n")))
 	(copy-file (org-compile-file tmpfile
 				     (list (format "typst compile --format %s --root %%o %%f" ext))
 				     ext "" log-buf)
