@@ -57,6 +57,13 @@ Initial value sets page to fit page content."
   :group 'ob-typst
   :type 'string)
 
+(defcustom ob-typst/default-format "png"
+  "Default format for output image."
+  :group 'ob-typst
+  :type '(choice (const "png")
+		 (const "svg")
+		 (const "pdf")))
+
 (defun ob-typst/cli-available-p ()
   "Returns t if typst cli command is available"
   (condition-case nil
@@ -67,7 +74,7 @@ Initial value sets page to fit page content."
   "Execute a block of typst code with org-babel.
 This function is called by `org-babel-execute-src-block'."
   (let* ((out-file (or (alist-get :outfile params)
-		       (org-babel-temp-file "org-babel-typst" ".png"))))
+		       (org-babel-temp-file "org-babel-typst" (format ".%s" ob-typst/default-format)))))
     (ob-typst/create-image body out-file)
     out-file))
 
