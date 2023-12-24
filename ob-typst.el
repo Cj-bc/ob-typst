@@ -59,10 +59,10 @@ Initial value sets page to fit page content."
 This function is called by `org-babel-execute-src-block'."
   (let* ((out-file (or (alist-get :outfile params)
 		       (org-babel-temp-file "org-babel-typst" ".png"))))
-    (ob-typst/create-formula-image body out-file)
+    (ob-typst/create-image body out-file)
     out-file))
 
-(defun ob-typst/create-formula-image (string tofile)
+(defun ob-typst/create-image (string tofile)
   "Create an image from typst source using external process.
 
 The Typst STRING is saved to a temporary Typst file, then
