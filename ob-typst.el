@@ -57,7 +57,7 @@ Initial value sets page to fit page content."
   :group 'ob-typst
   :type 'string)
 
-(defcustom ob-typst/default-format "png"
+(defcustom ob-typst/default-format "svg"
   "Default format for output image."
   :group 'ob-typst
   :type '(choice (const "png")
