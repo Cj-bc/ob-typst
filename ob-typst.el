@@ -45,10 +45,17 @@ expands to:
 which can't be previewed by `org-toggle-inline-images'.
 ")
 
-(defvar ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
-  "rule for page element when target typst snippet doesn't have one.
-Initial value sets page to fit page content.")
+(defgroup ob-typst nil
+  "Org babel functions for typst"
+  :group 'org-babel
+  :package-version '(ob-typst . "0.1.0")
+  :prefix "ob-typst/")
 
+(defcustom ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
+  "rule for page element when target typst snippet doesn't have one.
+Initial value sets page to fit page content."
+  :group 'ob-typst
+  :type 'string)
 
 (defun ob-typst/cli-available-p ()
   "Returns t if typst cli command is available"
