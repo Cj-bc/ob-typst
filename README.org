@@ -12,8 +12,10 @@ Org babel for typst. It can generate image or pdf, and inserts link to them.
 Write typst in code block
 
 #+begin_src typst
+#set text(fill: white, size: 25pt)
+
  = Hello!
- This is sample typst snippet.
+ This is sample typst snippet with formula $y = x^2 + 2x + 3$.
 #+end_src
 
 Calling ~C-c C-c~ (~org-ctrl-c-ctrl-c~) on it converts it into image,
