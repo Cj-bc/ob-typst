@@ -37,14 +37,14 @@ If you are using ~png~ or ~svg~, you can press ~C-c C-x C-v~
 *** Output to specified file
 You can specify file name for the generated image/pdf by ~:outfile~ argument:
 
-#+begin_src typst :outfile sample.png :exports both
+#+begin_src typst :outfile images/sample.png :exports both
   = Hello Sample file!
 
-  This file should be at _sample.png_
+  This file should be at _images/sample.png_
 #+end_src
 
 #+RESULTS:
-[[file:sample.png]]
+[[file:images/sample.png]]
 *** Default page rule when nothing is specified
 You can define default [[https://typst.app/docs/reference/layout/page/][page rule]] (defines page size, etc)
 ~ob-typst/default-page-rule~ that will be automatically inserted when
