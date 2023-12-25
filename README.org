@@ -7,7 +7,7 @@ If you are not familiar with org-babel, links below might be useful.
 + [[https://orgmode.org/manual/Evaluating-Code-Blocks.html][Evaluating Code Blocks (The Org Manual)]]
 
 ** Installation
-Beside of this package, you also need [[https://github.com/typst/typst][typst/typst cli command]]
+Along with this package, you also need [[https://github.com/typst/typst][typst/typst cli command]]
 
 #+begin_src elisp
   (leaf ob-typst
