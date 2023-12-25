@@ -2,6 +2,7 @@
 Org babel for typst. It can generate image or pdf, and inserts link to them.
 
 ** Installation
+Beside of this package, you also need [[https://github.com/typst/typst][typst/typst cli command]]
 
 #+begin_src elisp
   (leaf ob-typst
@@ -17,6 +18,9 @@ Write typst in code block
  = Hello!
  This is sample typst snippet with formula $y = x^2 + 2x + 3$.
 #+end_src
+
+#+RESULTS:
+[[file:/tmp/babel-mYLIXE/org-babel-typstOCwyAT.svg]]
 
 Calling ~C-c C-c~ (~org-ctrl-c-ctrl-c~) on it converts it into image,
 saves to temporary file, and inserts link to it.
@@ -39,7 +43,18 @@ You can specify file name for the generated image/pdf by ~:outfile~ argument:
 *** Default page rule when nothing is specified
 You can define default [[https://typst.app/docs/reference/layout/page/][page rule]] (defines page size, etc)
 ~ob-typst/default-page-rule~ that will be automatically inserted when
-none page rule is written in the snippet.
+no page rule is written in the snippet.
 
 By default, ~width~ and ~height~ are auto so that it won't be too big.
+
+#+begin_src typst
+#set page(width: auto, height: auto, margin: 0.3em)
+#+end_src
+
+** Customize
+*** ~ob-typst/default-format~
+It defines default file format to use when ~:outfile~ is not specified.
+
+*** ~ob-typst/default-page-rule~
+It defines default rule for "page".
 
