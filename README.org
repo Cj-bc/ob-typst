@@ -1,6 +1,11 @@
 * ob-typst -- Org babel file for typst
 Org babel for typst. It can generate image or pdf, and inserts link to them.
 
+If you are not familiar with org-babel, links below might be useful.
+
++ [[https://orgmode.org/worg/org-contrib/babel/intro.html][Introducing Babel -- orgmode.org/worg]]
++ [[https://orgmode.org/manual/Evaluating-Code-Blocks.html][Evaluating Code Blocks (The Org Manual)]]
+
 ** Installation
 Beside of this package, you also need [[https://github.com/typst/typst][typst/typst cli command]]
 
