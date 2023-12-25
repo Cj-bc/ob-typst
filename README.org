@@ -21,6 +21,9 @@ Write typst in code block
 Calling ~C-c C-c~ (~org-ctrl-c-ctrl-c~) on it converts it into image,
 saves to temporary file, and inserts link to it.
 
+If you are using ~png~ or ~svg~, you can press ~C-c C-x C-v~
+(~org-toggle-inline-images~) to preview image in the buffer.
+
 ** Features
 *** Output to specified file
 You can specify file name for the generated image/pdf by ~:outfile~ argument:
