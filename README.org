@@ -28,6 +28,11 @@ saves to temporary file, and inserts link to it.
 If you are using ~png~ or ~svg~, you can press ~C-c C-x C-v~
 (~org-toggle-inline-images~) to preview image in the buffer.
 
+[[./images/result-inserted-example.png]]
+
+[[./images/result-preview-example.png]]
+
+
 ** Features
 *** Output to specified file
 You can specify file name for the generated image/pdf by ~:outfile~ argument:
