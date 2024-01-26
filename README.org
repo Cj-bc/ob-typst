@@ -50,12 +50,13 @@ You can specify file name for the generated image/pdf by ~:outfile~ argument:
 
 #+RESULTS:
 [[file:images/sample.png]]
-*** Default page rule when nothing is specified
+*** Default rules for unspecified rules
 You can define default [[https://typst.app/docs/reference/layout/page/][page rule]] (defines page size, etc)
-~ob-typst/default-page-rule~ that will be automatically inserted when
-no page rule is written in the snippet.
+~ob-typst/default-rules-alist~ that will be automatically inserted when
+no relevant rule is written in the snippet.
 
-By default, ~width~ and ~height~ are auto so that it won't be too big.
+By default, It sets page rule and ~width~ and ~height~ are auto so
+that it won't be too big.
 
 #+begin_src typst
 #set page(width: auto, height: auto, margin: 0.3em)
@@ -65,6 +66,6 @@ By default, ~width~ and ~height~ are auto so that it won't be too big.
 *** ~ob-typst/default-format~
 It defines default file format to use when ~:outfile~ is not specified.
 
-*** ~ob-typst/default-page-rule~
-It defines default rule for "page".
+*** ~ob-typst/default-rules-alist~
+It defines default rules for settable elements.
 
