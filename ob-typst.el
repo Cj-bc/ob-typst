@@ -107,14 +107,25 @@ Generated file format is determined by TOFILE file
 extension. Supported file formats are: .png, .pdf, .svg
 "
   (if (ob-typst/cli-available-p)
-      (let ((tmpfile (make-temp-file "ob-typst"))
-	    (ext (file-name-extension tofile))
-	    (log-buf (get-buffer-create "*Org Preview typst Output*")))
+      (let* ((tmpfile (make-temp-file "ob-typst"))
+	     (ext (file-name-extension tofile))
+	     (log-buf (get-buffer-create "*Org Preview typst Output*"))
+	     (rules-in-string
+	      (seq-reduce
+	       (lambda (acc s)
+	  	 (let ((rule (save-match-data
+	  		       (string-match (rx (: line-start "#set " (group (+ (not "("))) "(")) s)
+	  		       (match-string 1 s))))
+	  	   (if rule (cons rule acc) acc)))
+	       (string-lines string) '()))
+	     (default-rules-str
+	      (string-join (mapcar
+			    (lambda (c)
+	  		      (unless (seq-contains-p rules-in-string (symbol-name (car c)))
+	  			(format "#set %s(%s)" (car c) (cdr c))))
+	  		    ob-typst/default-rules-alist) "\n")))
 	(with-temp-file tmpfile
-	  (insert string)
-	  (unless (search-backward "#set page(" nil t)
-	    (goto-char (point-min))
-	    (insert ob-typst/default-page-rule "\n")))
+	  (insert default-rules-str "\n" string))
 	(copy-file (org-compile-file tmpfile
 				     (list (format "typst compile --format %s --root %%o %%f" ext))
 				     ext "" log-buf)
