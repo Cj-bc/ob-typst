@@ -58,6 +58,11 @@ Initial value sets page to fit page content."
   :group 'ob-typst
   :type 'string)
 
+(defconst ob-typst/settable-elements '(bibliography list cite document emph figure footnote heading link
+						     enum numbering outline par parbreak quote ref strong table terms
+						     page)
+  "List of settable elements")
+
 (defcustom ob-typst/default-format "svg"
   "Default format for output image."
   :group 'ob-typst
