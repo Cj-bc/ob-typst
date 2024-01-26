@@ -63,6 +63,15 @@ Initial value sets page to fit page content."
 						     page)
   "List of settable elements")
 
+(defcustom ob-typst/default-rules-alist '((page . "width: auto, height: auto, margin: 0.3em"))
+  "Plist of default typst set rules that will be appened to every typst code.
+Each rules will be set only if target typst snippet doesn't have rule for each element.
+"
+  :group 'ob-typst
+  :type
+  `(alist :key-type (choice ,@(mapcar #'(lambda (e) `(const ,e)) ob-typst/settable-elements))
+	  :value-type string))
+
 (defcustom ob-typst/default-format "svg"
   "Default format for output image."
   :group 'ob-typst
