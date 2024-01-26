@@ -52,12 +52,6 @@ which can't be previewed by `org-toggle-inline-images'.
   :package-version '(ob-typst . "0.1.0")
   :prefix "ob-typst/")
 
-(defcustom ob-typst/default-page-rule  "#set page(width: auto, height: auto, margin: 0.3em)"
-  "rule for page element when target typst snippet doesn't have one.
-Initial value sets page to fit page content."
-  :group 'ob-typst
-  :type 'string)
-
 (defconst ob-typst/settable-elements '(bibliography list cite document emph figure footnote heading link
 						     enum numbering outline par parbreak quote ref strong table terms
 						     page)
